@@ -1,0 +1,633 @@
+<?xml version='1.0' encoding='utf-8'?>
+<UANodeSet xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:uax="http://opcfoundation.org/UA/2008/02/Types.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://opcfoundation.org/UA/2011/03/UANodeSet.xsd">
+  <NamespaceUris>
+    <Uri>assignment</Uri>
+  </NamespaceUris>
+  <Aliases>
+    <Alias Alias="LocalizedText">i=21</Alias>
+    <Alias Alias="Structure">i=22</Alias>
+    <Alias Alias="Organizes">i=35</Alias>
+    <Alias Alias="HasModellingRule">i=37</Alias>
+    <Alias Alias="HasTypeDefinition">i=40</Alias>
+    <Alias Alias="HasSubtype">i=45</Alias>
+    <Alias Alias="HasProperty">i=46</Alias>
+    <Alias Alias="HasComponent">i=47</Alias>
+    <Alias Alias="Argument">i=296</Alias>
+  </Aliases>
+  <UAObjectType NodeId="i=20002" BrowseName="0:AssetType">
+    <DisplayName>AssetType</DisplayName>
+    <Description>AssetType</Description>
+    <References>
+      <Reference ReferenceType="HasSubtype" IsForward="false">i=58</Reference>
+      <Reference ReferenceType="HasSubtype">i=20003</Reference>
+      <Reference ReferenceType="HasSubtype">i=20007</Reference>
+    </References>
+  </UAObjectType>
+  <UAObjectType NodeId="i=20003" BrowseName="0:MachineType">
+    <DisplayName>MachineType</DisplayName>
+    <Description>MachineType</Description>
+    <References>
+      <Reference ReferenceType="HasSubtype" IsForward="false">i=20002</Reference>
+      <Reference ReferenceType="HasSubtype">i=20004</Reference>
+      <Reference ReferenceType="HasComponent">i=20034</Reference>
+    </References>
+  </UAObjectType>
+  <UAObjectType NodeId="i=20004" BrowseName="0:RobotType">
+    <DisplayName>RobotType</DisplayName>
+    <Description>RobotType</Description>
+    <References>
+      <Reference ReferenceType="HasSubtype" IsForward="false">i=20003</Reference>
+      <Reference ReferenceType="HasComponent">i=20008</Reference>
+    </References>
+  </UAObjectType>
+  <UAObjectType NodeId="i=20007" BrowseName="0:AxisType">
+    <DisplayName>AxisType</DisplayName>
+    <Description>AxisType</Description>
+    <References>
+      <Reference ReferenceType="HasSubtype" IsForward="false">i=20002</Reference>
+    </References>
+  </UAObjectType>
+  <UAVariable NodeId="i=20008" BrowseName="0:Axis_Act" ParentNodeId="i=20004" DataType="Structure">
+    <DisplayName>Axis_Act</DisplayName>
+    <Description>Axis_Act</Description>
+    <References>
+      <Reference ReferenceType="HasComponent" IsForward="false">i=20004</Reference>
+      <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+      <Reference ReferenceType="HasModellingRule">i=78</Reference>
+    </References>
+  </UAVariable>
+  <UAObjectType NodeId="i=20005" BrowseName="0:ControllerType">
+    <DisplayName>ControllerType</DisplayName>
+    <Description>ControllerType</Description>
+    <References>
+      <Reference ReferenceType="HasSubtype" IsForward="false">i=58</Reference>
+      <Reference ReferenceType="HasComponent">i=20013</Reference>
+      <Reference ReferenceType="HasComponent">i=20020</Reference>
+      <Reference ReferenceType="HasComponent">i=20012</Reference>
+      <Reference ReferenceType="HasComponent">i=20023</Reference>
+    </References>
+  </UAObjectType>
+  <UAMethod NodeId="i=20013" BrowseName="0:Load" ParentNodeId="i=20005">
+    <DisplayName>Load</DisplayName>
+    <Description>Load</Description>
+    <References>
+      <Reference ReferenceType="HasComponent" IsForward="false">i=20005</Reference>
+      <Reference ReferenceType="HasModellingRule">i=78</Reference>
+      <Reference ReferenceType="HasProperty">i=20018</Reference>
+      <Reference ReferenceType="HasProperty">i=20019</Reference>
+    </References>
+  </UAMethod>
+  <UAVariable NodeId="i=20018" BrowseName="0:InputArguments" ParentNodeId="i=20013" ValueRank="0" DataType="Argument">
+    <DisplayName>InputArguments</DisplayName>
+    <Description>InputArguments</Description>
+    <References>
+      <Reference ReferenceType="HasProperty" IsForward="false">i=20013</Reference>
+      <Reference ReferenceType="HasTypeDefinition">i=68</Reference>
+      <Reference ReferenceType="HasModellingRule">i=78</Reference>
+    </References>
+    <Value>
+      <uax:ListOfExtensionObject>
+        <uax:ExtensionObject>
+          <uax:TypeId>
+            <uax:Identifier>i=296</uax:Identifier>
+          </uax:TypeId>
+          <uax:Body>
+            <uax:Argument>
+              <uax:Name>Path</uax:Name>
+              <uax:DataType>
+                <uax:Identifier>i=540</uax:Identifier>
+              </uax:DataType>
+              <uax:ValueRank>-1</uax:ValueRank>
+              <uax:ArrayDimensions />
+              <uax:Description>
+                <uax:Encoding>2</uax:Encoding>
+                <uax:Locale />
+                <uax:Text>Path to the machinecode to be loaded</uax:Text>
+              </uax:Description>
+            </uax:Argument>
+          </uax:Body>
+        </uax:ExtensionObject>
+      </uax:ListOfExtensionObject>
+    </Value>
+  </UAVariable>
+  <UAVariable NodeId="i=20019" BrowseName="0:OutputArguments" ParentNodeId="i=20013" ValueRank="0" DataType="Argument">
+    <DisplayName>OutputArguments</DisplayName>
+    <Description>OutputArguments</Description>
+    <References>
+      <Reference ReferenceType="HasProperty" IsForward="false">i=20013</Reference>
+      <Reference ReferenceType="HasTypeDefinition">i=68</Reference>
+      <Reference ReferenceType="HasModellingRule">i=78</Reference>
+    </References>
+    <Value>
+      <uax:ListOfExtensionObject>
+        <uax:ExtensionObject>
+          <uax:TypeId>
+            <uax:Identifier>i=296</uax:Identifier>
+          </uax:TypeId>
+          <uax:Body>
+            <uax:Argument>
+              <uax:Name>Return value</uax:Name>
+              <uax:DataType>
+                <uax:Identifier>i=1</uax:Identifier>
+              </uax:DataType>
+              <uax:ValueRank>-1</uax:ValueRank>
+              <uax:ArrayDimensions />
+              <uax:Description>
+                <uax:Encoding>2</uax:Encoding>
+                <uax:Locale />
+                <uax:Text>True if successful</uax:Text>
+              </uax:Description>
+            </uax:Argument>
+          </uax:Body>
+        </uax:ExtensionObject>
+      </uax:ListOfExtensionObject>
+    </Value>
+  </UAVariable>
+  <UAMethod NodeId="i=20020" BrowseName="0:Start" ParentNodeId="i=20005">
+    <DisplayName>Start</DisplayName>
+    <Description>Start</Description>
+    <References>
+      <Reference ReferenceType="HasComponent" IsForward="false">i=20005</Reference>
+      <Reference ReferenceType="HasModellingRule">i=78</Reference>
+      <Reference ReferenceType="HasProperty">i=20021</Reference>
+    </References>
+  </UAMethod>
+  <UAVariable NodeId="i=20021" BrowseName="0:OutputArguments" ParentNodeId="i=20020" ValueRank="0" DataType="Argument">
+    <DisplayName>OutputArguments</DisplayName>
+    <Description>OutputArguments</Description>
+    <References>
+      <Reference ReferenceType="HasProperty" IsForward="false">i=20020</Reference>
+      <Reference ReferenceType="HasTypeDefinition">i=68</Reference>
+      <Reference ReferenceType="HasModellingRule">i=78</Reference>
+    </References>
+    <Value>
+      <uax:ListOfExtensionObject>
+        <uax:ExtensionObject>
+          <uax:TypeId>
+            <uax:Identifier>i=296</uax:Identifier>
+          </uax:TypeId>
+          <uax:Body>
+            <uax:Argument>
+              <uax:Name>Return value</uax:Name>
+              <uax:DataType>
+                <uax:Identifier>i=1</uax:Identifier>
+              </uax:DataType>
+              <uax:ValueRank>-1</uax:ValueRank>
+              <uax:ArrayDimensions />
+              <uax:Description>
+                <uax:Encoding>2</uax:Encoding>
+                <uax:Locale />
+                <uax:Text>True if successful</uax:Text>
+              </uax:Description>
+            </uax:Argument>
+          </uax:Body>
+        </uax:ExtensionObject>
+      </uax:ListOfExtensionObject>
+    </Value>
+  </UAVariable>
+  <UAMethod NodeId="i=20012" BrowseName="0:Stop" ParentNodeId="i=20005">
+    <DisplayName>Stop</DisplayName>
+    <Description>Stop</Description>
+    <References>
+      <Reference ReferenceType="HasComponent" IsForward="false">i=20005</Reference>
+      <Reference ReferenceType="HasModellingRule">i=78</Reference>
+      <Reference ReferenceType="HasProperty">i=20022</Reference>
+    </References>
+  </UAMethod>
+  <UAVariable NodeId="i=20022" BrowseName="0:OutputArguments" ParentNodeId="i=20012" ValueRank="0" DataType="Argument">
+    <DisplayName>OutputArguments</DisplayName>
+    <Description>OutputArguments</Description>
+    <References>
+      <Reference ReferenceType="HasProperty" IsForward="false">i=20012</Reference>
+      <Reference ReferenceType="HasTypeDefinition">i=68</Reference>
+      <Reference ReferenceType="HasModellingRule">i=78</Reference>
+    </References>
+    <Value>
+      <uax:ListOfExtensionObject>
+        <uax:ExtensionObject>
+          <uax:TypeId>
+            <uax:Identifier>i=296</uax:Identifier>
+          </uax:TypeId>
+          <uax:Body>
+            <uax:Argument>
+              <uax:Name>Return value</uax:Name>
+              <uax:DataType>
+                <uax:Identifier>i=1</uax:Identifier>
+              </uax:DataType>
+              <uax:ValueRank>-1</uax:ValueRank>
+              <uax:ArrayDimensions />
+              <uax:Description>
+                <uax:Encoding>2</uax:Encoding>
+                <uax:Locale />
+                <uax:Text>True if successful</uax:Text>
+              </uax:Description>
+            </uax:Argument>
+          </uax:Body>
+        </uax:ExtensionObject>
+      </uax:ListOfExtensionObject>
+    </Value>
+  </UAVariable>
+  <UAVariable NodeId="i=20023" BrowseName="0:Status" ParentNodeId="i=20005" DataType="LocalizedText">
+    <DisplayName>Status</DisplayName>
+    <Description>Status</Description>
+    <References>
+      <Reference ReferenceType="HasComponent" IsForward="false">i=20005</Reference>
+      <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+      <Reference ReferenceType="HasModellingRule">i=78</Reference>
+    </References>
+    <Value>
+      <uax:LocalizedText>
+        <uax:Encoding>2</uax:Encoding>
+        <uax:Locale />
+        <uax:Text>Null</uax:Text>
+      </uax:LocalizedText>
+    </Value>
+  </UAVariable>
+  <UAObject NodeId="i=20034" BrowseName="0:Controller" ParentNodeId="i=20003">
+    <DisplayName>Controller</DisplayName>
+    <Description>Controller</Description>
+    <References>
+      <Reference ReferenceType="HasComponent" IsForward="false">i=20003</Reference>
+      <Reference ReferenceType="HasTypeDefinition">i=20005</Reference>
+      <Reference ReferenceType="HasModellingRule">i=78</Reference>
+      <Reference ReferenceType="HasComponent">i=20035</Reference>
+      <Reference ReferenceType="HasComponent">i=20038</Reference>
+      <Reference ReferenceType="HasComponent">i=20040</Reference>
+      <Reference ReferenceType="HasComponent">i=20042</Reference>
+    </References>
+  </UAObject>
+  <UAMethod NodeId="i=20035" BrowseName="0:Load" ParentNodeId="i=20034">
+    <DisplayName>Load</DisplayName>
+    <Description>Load</Description>
+    <References>
+      <Reference ReferenceType="HasComponent" IsForward="false">i=20034</Reference>
+      <Reference ReferenceType="HasModellingRule">i=78</Reference>
+      <Reference ReferenceType="HasProperty">i=20036</Reference>
+      <Reference ReferenceType="HasProperty">i=20037</Reference>
+    </References>
+  </UAMethod>
+  <UAVariable NodeId="i=20036" BrowseName="0:InputArguments" ParentNodeId="i=20035" ValueRank="0" DataType="Argument">
+    <DisplayName>InputArguments</DisplayName>
+    <Description>InputArguments</Description>
+    <References>
+      <Reference ReferenceType="HasProperty" IsForward="false">i=20035</Reference>
+      <Reference ReferenceType="HasTypeDefinition">i=68</Reference>
+      <Reference ReferenceType="HasModellingRule">i=78</Reference>
+    </References>
+    <Value>
+      <uax:ListOfExtensionObject>
+        <uax:ExtensionObject>
+          <uax:TypeId>
+            <uax:Identifier>i=296</uax:Identifier>
+          </uax:TypeId>
+          <uax:Body>
+            <uax:Argument>
+              <uax:Name>Path</uax:Name>
+              <uax:DataType>
+                <uax:Identifier>i=540</uax:Identifier>
+              </uax:DataType>
+              <uax:ValueRank>-1</uax:ValueRank>
+              <uax:ArrayDimensions />
+              <uax:Description>
+                <uax:Encoding>2</uax:Encoding>
+                <uax:Locale />
+                <uax:Text>Path to the machinecode to be loaded</uax:Text>
+              </uax:Description>
+            </uax:Argument>
+          </uax:Body>
+        </uax:ExtensionObject>
+      </uax:ListOfExtensionObject>
+    </Value>
+  </UAVariable>
+  <UAVariable NodeId="i=20037" BrowseName="0:OutputArguments" ParentNodeId="i=20035" ValueRank="0" DataType="Argument">
+    <DisplayName>OutputArguments</DisplayName>
+    <Description>OutputArguments</Description>
+    <References>
+      <Reference ReferenceType="HasProperty" IsForward="false">i=20035</Reference>
+      <Reference ReferenceType="HasTypeDefinition">i=68</Reference>
+      <Reference ReferenceType="HasModellingRule">i=78</Reference>
+    </References>
+    <Value>
+      <uax:ListOfExtensionObject>
+        <uax:ExtensionObject>
+          <uax:TypeId>
+            <uax:Identifier>i=296</uax:Identifier>
+          </uax:TypeId>
+          <uax:Body>
+            <uax:Argument>
+              <uax:Name>Return value</uax:Name>
+              <uax:DataType>
+                <uax:Identifier>i=1</uax:Identifier>
+              </uax:DataType>
+              <uax:ValueRank>-1</uax:ValueRank>
+              <uax:ArrayDimensions />
+              <uax:Description>
+                <uax:Encoding>2</uax:Encoding>
+                <uax:Locale />
+                <uax:Text>True if successful</uax:Text>
+              </uax:Description>
+            </uax:Argument>
+          </uax:Body>
+        </uax:ExtensionObject>
+      </uax:ListOfExtensionObject>
+    </Value>
+  </UAVariable>
+  <UAMethod NodeId="i=20038" BrowseName="0:Start" ParentNodeId="i=20034">
+    <DisplayName>Start</DisplayName>
+    <Description>Start</Description>
+    <References>
+      <Reference ReferenceType="HasComponent" IsForward="false">i=20034</Reference>
+      <Reference ReferenceType="HasModellingRule">i=78</Reference>
+      <Reference ReferenceType="HasProperty">i=20039</Reference>
+    </References>
+  </UAMethod>
+  <UAVariable NodeId="i=20039" BrowseName="0:OutputArguments" ParentNodeId="i=20038" ValueRank="0" DataType="Argument">
+    <DisplayName>OutputArguments</DisplayName>
+    <Description>OutputArguments</Description>
+    <References>
+      <Reference ReferenceType="HasProperty" IsForward="false">i=20038</Reference>
+      <Reference ReferenceType="HasTypeDefinition">i=68</Reference>
+      <Reference ReferenceType="HasModellingRule">i=78</Reference>
+    </References>
+    <Value>
+      <uax:ListOfExtensionObject>
+        <uax:ExtensionObject>
+          <uax:TypeId>
+            <uax:Identifier>i=296</uax:Identifier>
+          </uax:TypeId>
+          <uax:Body>
+            <uax:Argument>
+              <uax:Name>Return value</uax:Name>
+              <uax:DataType>
+                <uax:Identifier>i=1</uax:Identifier>
+              </uax:DataType>
+              <uax:ValueRank>-1</uax:ValueRank>
+              <uax:ArrayDimensions />
+              <uax:Description>
+                <uax:Encoding>2</uax:Encoding>
+                <uax:Locale />
+                <uax:Text>True if successful</uax:Text>
+              </uax:Description>
+            </uax:Argument>
+          </uax:Body>
+        </uax:ExtensionObject>
+      </uax:ListOfExtensionObject>
+    </Value>
+  </UAVariable>
+  <UAMethod NodeId="i=20040" BrowseName="0:Stop" ParentNodeId="i=20034">
+    <DisplayName>Stop</DisplayName>
+    <Description>Stop</Description>
+    <References>
+      <Reference ReferenceType="HasComponent" IsForward="false">i=20034</Reference>
+      <Reference ReferenceType="HasModellingRule">i=78</Reference>
+      <Reference ReferenceType="HasProperty">i=20041</Reference>
+    </References>
+  </UAMethod>
+  <UAVariable NodeId="i=20041" BrowseName="0:OutputArguments" ParentNodeId="i=20040" ValueRank="0" DataType="Argument">
+    <DisplayName>OutputArguments</DisplayName>
+    <Description>OutputArguments</Description>
+    <References>
+      <Reference ReferenceType="HasProperty" IsForward="false">i=20040</Reference>
+      <Reference ReferenceType="HasTypeDefinition">i=68</Reference>
+      <Reference ReferenceType="HasModellingRule">i=78</Reference>
+    </References>
+    <Value>
+      <uax:ListOfExtensionObject>
+        <uax:ExtensionObject>
+          <uax:TypeId>
+            <uax:Identifier>i=296</uax:Identifier>
+          </uax:TypeId>
+          <uax:Body>
+            <uax:Argument>
+              <uax:Name>Return value</uax:Name>
+              <uax:DataType>
+                <uax:Identifier>i=1</uax:Identifier>
+              </uax:DataType>
+              <uax:ValueRank>-1</uax:ValueRank>
+              <uax:ArrayDimensions />
+              <uax:Description>
+                <uax:Encoding>2</uax:Encoding>
+                <uax:Locale />
+                <uax:Text>True if successful</uax:Text>
+              </uax:Description>
+            </uax:Argument>
+          </uax:Body>
+        </uax:ExtensionObject>
+      </uax:ListOfExtensionObject>
+    </Value>
+  </UAVariable>
+  <UAVariable NodeId="i=20042" BrowseName="0:Status" ParentNodeId="i=20034" DataType="LocalizedText">
+    <DisplayName>Status</DisplayName>
+    <Description>Status</Description>
+    <References>
+      <Reference ReferenceType="HasComponent" IsForward="false">i=20034</Reference>
+      <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+      <Reference ReferenceType="HasModellingRule">i=78</Reference>
+    </References>
+    <Value>
+      <uax:LocalizedText>
+        <uax:Encoding>2</uax:Encoding>
+        <uax:Locale />
+        <uax:Text>Null</uax:Text>
+      </uax:LocalizedText>
+    </Value>
+  </UAVariable>
+  <UAObject NodeId="i=20001" BrowseName="0:KUKA_KR10" ParentNodeId="i=85">
+    <DisplayName>KUKA_KR10</DisplayName>
+    <Description>RobotType</Description>
+    <References>
+      <Reference ReferenceType="Organizes" IsForward="false">i=85</Reference>
+      <Reference ReferenceType="HasTypeDefinition">i=20004</Reference>
+      <Reference ReferenceType="HasComponent">i=20006</Reference>
+      <Reference ReferenceType="HasComponent">i=20009</Reference>
+    </References>
+  </UAObject>
+  <UAVariable NodeId="i=20006" BrowseName="0:Axis_Act" ParentNodeId="i=20001" DataType="Structure">
+    <DisplayName>Axis_Act</DisplayName>
+    <Description>Axis_Act</Description>
+    <References>
+      <Reference ReferenceType="HasComponent" IsForward="false">i=20001</Reference>
+      <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+    </References>
+  </UAVariable>
+  <UAObject NodeId="i=20009" BrowseName="0:Controller" ParentNodeId="i=20001">
+    <DisplayName>Controller</DisplayName>
+    <Description>Controller</Description>
+    <References>
+      <Reference ReferenceType="HasComponent" IsForward="false">i=20001</Reference>
+      <Reference ReferenceType="HasTypeDefinition">i=20005</Reference>
+      <Reference ReferenceType="HasComponent">i=20010</Reference>
+      <Reference ReferenceType="HasComponent">i=20015</Reference>
+      <Reference ReferenceType="HasComponent">i=20017</Reference>
+      <Reference ReferenceType="HasComponent">i=20025</Reference>
+    </References>
+  </UAObject>
+  <UAMethod NodeId="i=20010" BrowseName="0:Load" ParentNodeId="i=20009">
+    <DisplayName>Load</DisplayName>
+    <Description>Load</Description>
+    <References>
+      <Reference ReferenceType="HasComponent" IsForward="false">i=20009</Reference>
+      <Reference ReferenceType="HasProperty">i=20011</Reference>
+      <Reference ReferenceType="HasProperty">i=20014</Reference>
+    </References>
+  </UAMethod>
+  <UAVariable NodeId="i=20011" BrowseName="0:InputArguments" ParentNodeId="i=20010" ValueRank="0" DataType="Argument">
+    <DisplayName>InputArguments</DisplayName>
+    <Description>InputArguments</Description>
+    <References>
+      <Reference ReferenceType="HasProperty" IsForward="false">i=20010</Reference>
+      <Reference ReferenceType="HasTypeDefinition">i=68</Reference>
+    </References>
+    <Value>
+      <uax:ListOfExtensionObject>
+        <uax:ExtensionObject>
+          <uax:TypeId>
+            <uax:Identifier>i=296</uax:Identifier>
+          </uax:TypeId>
+          <uax:Body>
+            <uax:Argument>
+              <uax:Name>Path</uax:Name>
+              <uax:DataType>
+                <uax:Identifier>i=540</uax:Identifier>
+              </uax:DataType>
+              <uax:ValueRank>-1</uax:ValueRank>
+              <uax:ArrayDimensions />
+              <uax:Description>
+                <uax:Encoding>2</uax:Encoding>
+                <uax:Locale />
+                <uax:Text>Path to the machinecode to be loaded</uax:Text>
+              </uax:Description>
+            </uax:Argument>
+          </uax:Body>
+        </uax:ExtensionObject>
+      </uax:ListOfExtensionObject>
+    </Value>
+  </UAVariable>
+  <UAVariable NodeId="i=20014" BrowseName="0:OutputArguments" ParentNodeId="i=20010" ValueRank="0" DataType="Argument">
+    <DisplayName>OutputArguments</DisplayName>
+    <Description>OutputArguments</Description>
+    <References>
+      <Reference ReferenceType="HasProperty" IsForward="false">i=20010</Reference>
+      <Reference ReferenceType="HasTypeDefinition">i=68</Reference>
+    </References>
+    <Value>
+      <uax:ListOfExtensionObject>
+        <uax:ExtensionObject>
+          <uax:TypeId>
+            <uax:Identifier>i=296</uax:Identifier>
+          </uax:TypeId>
+          <uax:Body>
+            <uax:Argument>
+              <uax:Name>Return value</uax:Name>
+              <uax:DataType>
+                <uax:Identifier>i=1</uax:Identifier>
+              </uax:DataType>
+              <uax:ValueRank>-1</uax:ValueRank>
+              <uax:ArrayDimensions />
+              <uax:Description>
+                <uax:Encoding>2</uax:Encoding>
+                <uax:Locale />
+                <uax:Text>True if successful</uax:Text>
+              </uax:Description>
+            </uax:Argument>
+          </uax:Body>
+        </uax:ExtensionObject>
+      </uax:ListOfExtensionObject>
+    </Value>
+  </UAVariable>
+  <UAMethod NodeId="i=20015" BrowseName="0:Start" ParentNodeId="i=20009">
+    <DisplayName>Start</DisplayName>
+    <Description>Start</Description>
+    <References>
+      <Reference ReferenceType="HasComponent" IsForward="false">i=20009</Reference>
+      <Reference ReferenceType="HasProperty">i=20016</Reference>
+    </References>
+  </UAMethod>
+  <UAVariable NodeId="i=20016" BrowseName="0:OutputArguments" ParentNodeId="i=20015" ValueRank="0" DataType="Argument">
+    <DisplayName>OutputArguments</DisplayName>
+    <Description>OutputArguments</Description>
+    <References>
+      <Reference ReferenceType="HasProperty" IsForward="false">i=20015</Reference>
+      <Reference ReferenceType="HasTypeDefinition">i=68</Reference>
+    </References>
+    <Value>
+      <uax:ListOfExtensionObject>
+        <uax:ExtensionObject>
+          <uax:TypeId>
+            <uax:Identifier>i=296</uax:Identifier>
+          </uax:TypeId>
+          <uax:Body>
+            <uax:Argument>
+              <uax:Name>Return value</uax:Name>
+              <uax:DataType>
+                <uax:Identifier>i=1</uax:Identifier>
+              </uax:DataType>
+              <uax:ValueRank>-1</uax:ValueRank>
+              <uax:ArrayDimensions />
+              <uax:Description>
+                <uax:Encoding>2</uax:Encoding>
+                <uax:Locale />
+                <uax:Text>True if successful</uax:Text>
+              </uax:Description>
+            </uax:Argument>
+          </uax:Body>
+        </uax:ExtensionObject>
+      </uax:ListOfExtensionObject>
+    </Value>
+  </UAVariable>
+  <UAMethod NodeId="i=20017" BrowseName="0:Stop" ParentNodeId="i=20009">
+    <DisplayName>Stop</DisplayName>
+    <Description>Stop</Description>
+    <References>
+      <Reference ReferenceType="HasComponent" IsForward="false">i=20009</Reference>
+      <Reference ReferenceType="HasProperty">i=20024</Reference>
+    </References>
+  </UAMethod>
+  <UAVariable NodeId="i=20024" BrowseName="0:OutputArguments" ParentNodeId="i=20017" ValueRank="0" DataType="Argument">
+    <DisplayName>OutputArguments</DisplayName>
+    <Description>OutputArguments</Description>
+    <References>
+      <Reference ReferenceType="HasProperty" IsForward="false">i=20017</Reference>
+      <Reference ReferenceType="HasTypeDefinition">i=68</Reference>
+    </References>
+    <Value>
+      <uax:ListOfExtensionObject>
+        <uax:ExtensionObject>
+          <uax:TypeId>
+            <uax:Identifier>i=296</uax:Identifier>
+          </uax:TypeId>
+          <uax:Body>
+            <uax:Argument>
+              <uax:Name>Return value</uax:Name>
+              <uax:DataType>
+                <uax:Identifier>i=1</uax:Identifier>
+              </uax:DataType>
+              <uax:ValueRank>-1</uax:ValueRank>
+              <uax:ArrayDimensions />
+              <uax:Description>
+                <uax:Encoding>2</uax:Encoding>
+                <uax:Locale />
+                <uax:Text>True if successful</uax:Text>
+              </uax:Description>
+            </uax:Argument>
+          </uax:Body>
+        </uax:ExtensionObject>
+      </uax:ListOfExtensionObject>
+    </Value>
+  </UAVariable>
+  <UAVariable NodeId="i=20025" BrowseName="0:Status" ParentNodeId="i=20009" DataType="LocalizedText">
+    <DisplayName>Status</DisplayName>
+    <Description>Status</Description>
+    <References>
+      <Reference ReferenceType="HasComponent" IsForward="false">i=20009</Reference>
+      <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+    </References>
+    <Value>
+      <uax:LocalizedText>
+        <uax:Encoding>2</uax:Encoding>
+        <uax:Locale />
+        <uax:Text>Null</uax:Text>
+      </uax:LocalizedText>
+    </Value>
+  </UAVariable>
+</UANodeSet>

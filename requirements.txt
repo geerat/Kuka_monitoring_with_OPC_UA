@@ -1,0 +1,4 @@
+opcua
+paho-mqtt
+pyQt5
+opcua-modeler
