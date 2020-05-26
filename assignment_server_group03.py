@@ -37,14 +37,14 @@ def main():
     # TODO: find the method to 'import' nodes defined in 'XML'. to find it check the documentation https://python-opcua.readthedocs.io/en/latest/server.html
     # TODO: In the line below replace the underscores with the method you found earlier. This will call the method from the myserver object.
     # TODO: As the fuction argument provide the path/name of the XML file you were given
-    myserver.____("____")
+    myserver.import_xml("kuka_kr10.xml")
     print("Adress space model imported into server")
 
     # Assemble server endpoint/URL
     ep_protocol = "opc.tcp"  # OPC UA protocol
     ep_ip = "localhost"  # do not change, localhost    
-    ep_port = "____" # TODO: chose a free unblocked port (for the assignment chose a random number between 9000 and 10000)    
-    ep_path = "freeopcua/server/group___" # TODO: add your group number. Path on the server where the address space is accesible. One server can host multiple address spaces
+    ep_port = "9090" # TODO: chose a free unblocked port (for the assignment chose a random number between 9000 and 10000)    
+    ep_path = "freeopcua/server/group03" # TODO: add your group number. Path on the server where the address space is accesible. One server can host multiple address spaces
     endpoint = ep_protocol+"://"+ep_ip+":" + \
         ep_port+"/"+ep_path  # assemble the string
 
@@ -65,11 +65,11 @@ def main():
 
     # Get reference to the controller node
     # TODO: Get a reference to the 'controller' node. Have a look at the previous four lines of code, and the address space in the xml file.
-    node_controller = ____
+    node_controller = node_kuka.get_child("0:Controller")
 
     # Get reference to the status node
-    machinestatus = ____  # TODO: Get a reference to the 'status' node
-    ____  # TODO: Set the machinestatus to 'unavailable'
+    machinestatus = node_controller.get_child("0:Status")  # TODO: Get a reference to the 'status' node
+    machinestatus.set_value('unavailable')  # TODO: Set the machinestatus to 'unavailable'
 
     print("OPC UA variable nodes linked against KUKA controller")
 
@@ -87,14 +87,14 @@ def main():
     print("Callback with KUKA controller registered")
 
     # Get references to the OPC UA Controller methods
-    controller_loadprogram = ____  # TODO get reference to 'Load' method node
-    controller_start = ____  # TODO get reference to 'Start' method node
-    controller_stop = ____  # TODO get reference to 'Stop' method node
+    controller_loadprogram = node_controller.get_child("0:Load")  # TODO get reference to 'Load' method node
+    controller_start = node_controller.get_child("0:Start")  # TODO get reference to 'Start' method node
+    controller_stop = node_controller.get_child("0:Stop")  # TODO get reference to 'Stop' method node
 
     # Link OPC UA methods with Python methods
     myserver.link_method(controller_loadprogram, LoadProgram)
-    ____.(____, Start)  # TODO add code to link start method
-    ____.(_____, Stop)  # TODO add code link stop method
+    myserver.link_method(controller_start, Start)  # TODO add code to link start method
+    myserver.link_method(controller_stop, Stop)  # TODO add code link stop method
 
     print("OPC UA methods nodes linked against KUKA controller")
 
@@ -119,7 +119,7 @@ def LoadProgram(parent, path):
 @opcua.uamethod
 def Start(parent):
     print("Calling start prgram")
-    kuka.____  # TODO call 'Start' method on KUKA Bridge
+    kuka.Start()  # TODO call 'Start' method on KUKA Bridge
     sleep(0.05)
     result = True
     return result
